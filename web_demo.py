@@ -25,6 +25,18 @@ audio_token_pattern = re.compile(r"<\|audio_(\d+)\|>")
 from flow_inference import AudioDecoder
 from audio_process import AudioStreamProcessor
 
+
+def ngrok_proxy(port):
+    """
+    run `ngrok config add-authtoken $NGROK_TOKEN`
+    """
+    from pyngrok import ngrok
+    import nest_asyncio
+
+    ngrok_tunnel = ngrok.connect(port)
+    print('Public URL:', ngrok_tunnel.public_url)
+    nest_asyncio.apply()
+
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--host", type=str, default="0.0.0.0")
@@ -32,7 +44,12 @@ if __name__ == "__main__":
     parser.add_argument("--flow-path", type=str, default="./glm-4-voice-decoder")
     parser.add_argument("--model-path", type=str, default="THUDM/glm-4-voice-9b")
     parser.add_argument("--tokenizer-path", type= str, default="THUDM/glm-4-voice-tokenizer")
+    parser.add_argument("--ngrok", type=bool,
+                        default=False, help="use ngrok proxy")
     args = parser.parse_args()
+
+    if args.ngrok:
+      ngrok_proxy(args.port)
 
     flow_config = os.path.join(args.flow_path, "config.yaml")
     flow_checkpoint = os.path.join(args.flow_path, 'flow.pt')
