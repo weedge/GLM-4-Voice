@@ -16,10 +16,8 @@ import torch
 import gradio as gr
 from speech_tokenizer.utils import extract_speech_token
 
-
 sys.path.insert(0, "./cosyvoice")
 sys.path.insert(0, "./third_party/Matcha-TTS")
-
 
 audio_token_pattern = re.compile(r"<\|audio_(\d+)\|>")
 
@@ -89,7 +87,6 @@ if __name__ == "__main__":
             history: list[dict],
             previous_input_tokens: str,
             previous_completion_tokens: str,
-            server_addr: str = "http://localhost:10000",
     ):
 
         if input_mode == "audio":
@@ -120,7 +117,7 @@ if __name__ == "__main__":
 
         with torch.no_grad():
             response = requests.post(
-                f"{server_addr}/generate_stream",
+                f"{args.server_addr}/generate_stream",
                 data=json.dumps({
                     "prompt": inputs,
                     "temperature": temperature,
@@ -273,7 +270,6 @@ if __name__ == "__main__":
                 history_state,
                 input_tokens,
                 completion_tokens,
-                args.server_addr,
             ],
             outputs=[
                 history_state,
