@@ -150,8 +150,7 @@ if __name__ == "__main__":
     parser.add_argument("--device", type=str, default="cuda:0")
     parser.add_argument("--port", type=int, default=10000)
     parser.add_argument("--model-path", type=str, default="THUDM/glm-4-voice-9b")
-    parser.add_argument("--ngrok", type=bool,
-                        default=False, help="use ngrok proxy")
+    parser.add_argument("--ngrok", action='store_true', help="use ngrok proxy")
 
     args = parser.parse_args()
     if args.ngrok:

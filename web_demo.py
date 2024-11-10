@@ -43,7 +43,7 @@ if __name__ == "__main__":
     parser.add_argument("--tokenizer-path", type=str, default="THUDM/glm-4-voice-tokenizer")
     parser.add_argument("--server-addr", type=str,
                         default="http://localhost:10000", help="server address")
-    parser.add_argument("--ngrok", type=bool, default=False, help="use ngrok proxy")
+    parser.add_argument("--ngrok", action='store_true', help="use ngrok proxy")
     args = parser.parse_args()
 
     if args.ngrok:
