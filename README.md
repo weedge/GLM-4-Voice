@@ -132,6 +132,7 @@ https://github.com/user-attachments/assets/d5ff0815-74f8-4738-b0f1-477cfc8dcc2d
 
 ## 引用
 
+```
 @misc{zeng2024glm4,
       title={GLM-4-Voice: Towards Intelligent and Human-Like End-to-End Spoken Chatbot}, 
       author={Aohan Zeng and Zhengxiao Du and Mingdao Liu and Kedong Wang and Shengmin Jiang and Lei Zhao and Yuxiao Dong and Jie Tang},
@@ -141,7 +142,9 @@ https://github.com/user-attachments/assets/d5ff0815-74f8-4738-b0f1-477cfc8dcc2d
       primaryClass={cs.CL},
       url={https://arxiv.org/abs/2412.02612}, 
 }
+```
 
+```
 @misc{zeng2024scaling,
       title={Scaling Speech-Text Pre-training with Synthetic Interleaved Data}, 
       author={Aohan Zeng and Zhengxiao Du and Mingdao Liu and Lei Zhang and Shengmin Jiang and Yuxiao Dong and Jie Tang},
@@ -151,3 +154,4 @@ https://github.com/user-attachments/assets/d5ff0815-74f8-4738-b0f1-477cfc8dcc2d
       primaryClass={cs.CL},
       url={https://arxiv.org/abs/2411.17607}, 
 }
+```
