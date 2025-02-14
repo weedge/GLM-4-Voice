@@ -83,6 +83,9 @@ class AudioStreamProcessor:
         return start_point + silence_points[0]
       
     def _to_wav_bytes(self, audio_data):
+        return (audio_data * 32768).astype(np.int16).tobytes()
+
+    def _to_wav_bytes_v1(self, audio_data):
         """
         trans_to_wav_bytes
         """
